@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+body {
+    line-height: 31px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+}
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            padding: 10px;
+            color: rgb(0, 0, 0);
+        }
+
+        .navbar button {
+            background: linear-gradient(45deg, #67FEA6, #ABFD84);
+            color: rgb(0, 0, 0);
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 5vh;
+            width: 15vh;
+            transition: background-color 0.3s;
+        }
+
+        .navbar button:hover {
+            background-color: #ABFD84;
+            
+        }
+
+        .logo img {
+            max-height: 30px; /* Set your desired max height for the logo image */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        .blogs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-container-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: justify;
+        }
+
+     .blogs-container-head {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 20px; /* Adjust padding as needed */
+        }
+
+        .blogs-heading {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #67FEA6;
+            position: relative;
+            display: inline-block;
+        }
+
+        .blogs-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #191919;
+        }
+
+        .sub-heading {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Animation for heading */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .blogs-heading,
+        .sub-heading {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .blog-card {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            width: calc(33.33% - 20px);
+            box-sizing: border-box;
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s, border-color 0.3s, background-color 0.3s;
+            background-color: white;
+            overflow: hidden;
+            border-color: #e9e9e9;
+        }
+
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+            border-color: #67FEA6; /* Change border color on hover */
+        }
+
+        .blog-card h2 {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .blog-card p {
+            color: #666;
+        }
+
+        .blog-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #67FEA6, #ABFD84);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .blog-card a:hover {
+            background-color: #2980b9;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .page-number {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #ddd;
+            margin-right: 5px;
+            cursor: pointer;
+            background-color: #fff;
+            transition: background-color 0.3s;
+            border-radius: 3px;
+        }
+
+        .page-number:hover {
+            background-color: #f0f0f0;
+        }
+
+        .active {
+            background-color: #67FEA6;
+            color: white;
+        }
+
+        .next-prev {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 100px;
+        }
+
+        .next-prev a {
+            text-decoration: none;
+            padding: 5px 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .next-prev a:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png"  alt="logo"></a>
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="#">Features</a>
+            <a href="/about.html">About</a>
+            <a href="/Service.html">Service</a>
+            <a href="/blogs.ejs">Blogs</a>
+            <a href="#">Teams</a>
+            <a href="#">Pricing</a>
+            <a href="/contact.html">Contact</a>
+       
+        </div>
+        <button>Try Free</button>
+    </div>
+
+    <div class="blogs-container-head">
+        <h1 class="blogs-heading">Blogs</h1>
+        <p class="sub-heading">Discover the latest insights and stories.</p>
+        
+        <div class="blog-container-card">
+            <% for (const blog of blogs) { %>
+                <div class="blog-card">
+                    <img src="<%= blog.imageUrl %>" alt="Blog Image" class="blog-image">
+                    <h1 style="font-size: 20px;text-align: left;"><%= blog.heading %></h1>
+                    <p><%= blog.paragraph %></p>
+                    <a href="<%= blog.blogPath %>">Read more</a>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="pagination">
+          
+        
+            <% for (let i = 1; i <= totalPages; i++) { %>
+                <div class="page-number <%= i === currentPage ? 'active' : '' %>"
+                     onclick="window.location.href='/blogs?page=<%= i %>'">
+                    <%= i %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

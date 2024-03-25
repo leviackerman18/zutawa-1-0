@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Blog</title>
+    <style>
+        body {
+            line-height: 31px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f9f9f9; /* Set a light background color */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            color: rgb(0, 0, 0);
+            top: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar button {
+            background: linear-gradient(45deg, #67FEA6, #ABFD84);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            height: 5vh;
+            width: 15vh;
+            transition: background-color 0.3s;
+        }
+
+        .navbar button:hover {
+            background-color: #ABFD84;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 10px;
+            margin-top: 80px; /* Add margin to create space between navbar and blog container */
+            text-align: justify;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+            margin-bottom: -20vh;
+        }
+
+        .paragraph {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .Image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .Image:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-detail {
+            color: #777;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Your Logo</div>
+        <div class="nav-links">
+            <a href="/index.html">Home</a>
+            <a href="#">Features</a>
+            <a href="/about.html">About</a>
+            <a href="/Service.html">Service</a>
+            <a href="/blogs.ejs">Blogs</a>
+            <a href="#">Teams</a>
+            <a href="#">Pricing</a>
+            <a href="/contact.html">Contact</a>
+        </div>
+        <button>Try Free</button>
+    </div>
+
+    <div class="blog-container">
+        <h1 style="color: #3498db;">The Evolution of UI/UX: From Skeuomorphism to Neumorphism</h1>
+
+        <p class="paragraph">Digital user interfaces have transitioned from skeuomorphic realism through flat design to neumorphism, embodying a seamless blend of tactile elements and modern minimalism.</p>
+
+        <h2>Subheading</h2>
+
+        <img src="https://media.licdn.com/dms/image/D4E12AQEZ67uEkAqvng/article-cover_image-shrink_720_1280/0/1660315042269?e=2147483647&v=beta&t=wDD8xj2REftvPZYcD78dnFpaYrdO4TJv4NsiMfYD-Gk" alt="Sample Image" class="Image">
+
+        <p class="blog-detail">fsonfo</p>
+    </div>
+</body>
+</html>
